@@ -9,9 +9,8 @@ jobs:
     steps:    
       - checkout
       - run: mvn install
-      - snyk/scan:
-          command: monitor
-          monitor-on-build: false
+      - snyk/install
+      - run: snyk code test # or any other CLI command here
 
 workflows:
   build-snyk:
